@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/legacy/image";
 import path from "path";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 const BenefitCard = ({ data, aosType }) => {
   const { image, title, description, linkURL, linkName } = data;
@@ -19,9 +20,11 @@ const BenefitCard = ({ data, aosType }) => {
         {title}
       </h4>
       <article>
-        <p className="m-0 w-full py-0 text-left font-light leading-normal">
-          {description}
-        </p>
+        <div className="m-0 w-full py-0 text-left leading-normal">
+          <TinaMarkdown 
+            content={description}
+          />
+        </div>
         {linkURL && (
           <a className="text-white no-underline" href={linkURL}>
             {linkName}
