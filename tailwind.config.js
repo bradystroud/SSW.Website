@@ -318,6 +318,7 @@ module.exports = {
   },
   variants: {
     extend: { typography: ["tint", "dark", "primary"] },
+    padding: ["first"],
   },
   plugins: [
     require("@tailwindcss/typography"),

@@ -20,7 +20,7 @@ const BenefitCard = ({ data, aosType }) => {
         {title}
       </h4>
       <article>
-        <div className="m-0 w-full py-0 text-left leading-normal">
+        <div className="m-0 w-full py-0 text-left text-base leading-normal">
           <TinaMarkdown 
             content={description}
           />
