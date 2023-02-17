@@ -77,7 +77,7 @@ const renderEvent = (e: Event) => {
 
   return (
     <article key={e.Id} className="flex">
-      <figure className="flex min-w-fit items-center">
+      <figure className="my-0 min-w-fit">
         <Link href={e.Thumbnail.Url}>
           {/* TODO: refactor with next/image */}
           <Image
@@ -88,7 +88,7 @@ const renderEvent = (e: Event) => {
           />
         </Link>
       </figure>
-      <div className="ml-5 flex flex-col justify-center">
+      <div className="ml-5 mr-10 flex flex-col">
         <time className="text-xs uppercase">
           <span>{e.FormattedDate}</span>
           <span className="ml-2 inline-flex items-center rounded-md bg-gray-700 px-1.5 text-xs font-bold text-white">
