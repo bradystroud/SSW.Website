@@ -16,6 +16,10 @@ const zendeskLoaded = () => {
 const ZendeskButton = ({ zendeskKey }) => {
   const [loaded, setLoaded] = useState(false);
 
+  const zendeskKeyDefined = () => {
+    return zendeskKey && zendeskKey !== "undefined";
+  }
+
   const checkLoaded = () => {
     if (zendeskLoaded()) setLoaded(true);
   };
@@ -26,7 +30,6 @@ const ZendeskButton = ({ zendeskKey }) => {
   });
 
   const loadZendesk = () => {
-    if (!zendeskKey || zendeskKey === "undefined") return;
     const script = document.createElement("script");
     script.setAttribute("id", "ze-snippet");
     script.src = `https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`;
@@ -34,6 +37,7 @@ const ZendeskButton = ({ zendeskKey }) => {
   };
 
   const handleClick = () => {
+    if(!zendeskKeyDefined()) return;
     sessionStorage.setItem("ZD-widgetOpen", "true");
     loadZendesk();
     start();
@@ -44,7 +48,7 @@ const ZendeskButton = ({ zendeskKey }) => {
     setLoaded(loaded);
 
     const widgetOpen = sessionStorage.getItem(ZDwidgetOpen);
-    if (widgetOpen === "true" && !loaded) {
+    if (zendeskKeyDefined() && widgetOpen === "true" && !loaded) {
       loadZendesk();
       start();
     }
